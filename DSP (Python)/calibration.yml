@@ -1,0 +1,56 @@
+chest:
+  origin_pitch: 45
+  origin_roll: -35
+  origin_yaw: 84
+head:
+  origin_pitch: 45
+  origin_roll: -35
+  origin_yaw: 84
+left_ankle:
+  origin_pitch: 45
+  origin_roll: -35
+  origin_yaw: 84
+left_elbow:
+  origin_pitch: 45
+  origin_roll: -35
+  origin_yaw: 84
+left_hip:
+  origin_pitch: 45
+  origin_roll: -35
+  origin_yaw: 84
+left_knee:
+  origin_pitch: 45
+  origin_roll: -35
+  origin_yaw: 84
+left_shoulder:
+  origin_pitch: 45
+  origin_roll: -35
+  origin_yaw: 84
+left_wrist:
+  origin_pitch: 45
+  origin_roll: -35
+  origin_yaw: 84
+right_ankle:
+  origin_pitch: 45
+  origin_roll: -35
+  origin_yaw: 84
+right_elbow:
+  origin_pitch: 45
+  origin_roll: -35
+  origin_yaw: 84
+right_hip:
+  origin_pitch: 45
+  origin_roll: -35
+  origin_yaw: 84
+right_knee:
+  origin_pitch: 45
+  origin_roll: -35
+  origin_yaw: 84
+right_shoulder:
+  origin_pitch: 45
+  origin_roll: -35
+  origin_yaw: 84
+right_wrist:
+  origin_pitch: 45
+  origin_roll: -35
+  origin_yaw: 84
