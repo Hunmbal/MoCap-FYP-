@@ -40,33 +40,39 @@ struct imu_data {
 
 
 imu_data imu;
-String data_array[500];
 
 void setup() {
+  // put your setup code here, to run once:
   Wire.begin(SDA_PIN, SCL_PIN);
   Serial.begin(9600);
 
+  mux1.begin();
+  mux2.begin();
+  mux3.begin();
+  mux4.begin();
   // Wake up the MPU9250
-  Wire.beginTransmission(IMU);
-  Wire.write(PWR_MGMT_1_REG);
-  Wire.write(0);
-  Wire.endTransmission();
+  // Wire.beginTransmission(IMU);
+  // Wire.write(PWR_MGMT_1_REG);
+  // Wire.write(0);
+  // Wire.endTransmission();
 
  
-  // Initialize SPIFFS
-  if (!SPIFFS.begin(true)) {
-    Serial.println("An error occurred while mounting SPIFFS");
-    return;
-  }
-  Serial.println("SPIFFS mounted successfully");
-
+ 
+  // Initialize all 14 IMUs
+for (int i = 0; i < 14; i++) {
+    selectIMU(i);  // Select the IMU using the multiplexer
+    if (imu[i].begin() != 0) {
+      Serial.print("Failed to initialize IMU #");
+      Serial.println(i);
+      while (1);  // Stop execution if any IMU fails
+    }
 
 }
 
 void loop() {
     for (int i = 0; i < 14; i++) {
-         selectIMU(i);
-
+        selectIMU(i);
+  // put your main code here, to run repeatedly:
   imu.accelX = (readRegister16(IMU, ACCEL_XOUT_H)-102) / 16370.0; // Adjust scale
   imu.accelY = (readRegister16(IMU, ACCEL_XOUT_H + 2)-168) / 16390.0;
   imu.accelZ = (readRegister16(IMU, ACCEL_XOUT_H + 4)+1483) / 16290.0;
